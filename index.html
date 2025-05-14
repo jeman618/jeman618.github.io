@@ -1,2 +1,34 @@
 <h1>Hello!</h1>
 <h5>I see you</h5>
+
+<body onload = "getLocation()">
+
+<iframe src="https://giphy.com/embed/lTQF0ODLLjhza" width="480" height="355" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/kiss-spongebob-squarepants-lTQF0ODLLjhza">via GIPHY</a></p>
+
+<!-- <h1>HTML Geolocation</h1> -->
+<!-- <p>Click the button to get your coordinates.</p> -->
+
+<p id="demo"></p>
+
+<script>
+const x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  // xhttp.open("GET", "stored.php?Lat: " + position.coords.latitude + 
+  //   "<br>Long: " + position.coords.longitude)
+  // xhttp.send()
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+
+</script>
+
+</body>
