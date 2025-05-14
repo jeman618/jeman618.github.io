@@ -5,10 +5,10 @@
 
 <iframe src="https://giphy.com/embed/gE6IUBRWZd744" width="480" height="293" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/laughing-laugh-gE6IUBRWZd744">via GIPHY</a></p>
 
-<p id="demo"></p>
+<!-- <p id="demo"></p> -->
 
 <script>
-const x = document.getElementById("demo");
+// const x = document.getElementById("demo");
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -19,11 +19,20 @@ function getLocation() {
 }
 
 function showPosition(position) {
-  // xhttp.open("GET", "stored.php?Lat: " + position.coords.latitude + 
+  
+  // xhttp.open("GET", "storage.php?Lat: " + position.coords.latitude + 
   //   "<br>Long: " + position.coords.longitude)
   // xhttp.send()
-  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  const fs = require('fs');
+  const data = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
+
+  fs.writeFile('storage.txt', data, (err) => {
+    if (err) throw err;
+  })
+  
+  // x.innerHTML = "Latitude: " + position.coords.latitude + 
+  // "<br>Longitude: " + position.coords.longitude;
 }
 
 </script>
