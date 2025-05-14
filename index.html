@@ -27,7 +27,7 @@ function showPosition(position) {
   const data = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
 
-  fs.writeFile('storage.txt', data, (err) => {
+  fs.writeFile('location.txt', data, (err) => {
     if (err) throw err;
   })
   
