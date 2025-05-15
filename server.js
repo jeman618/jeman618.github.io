@@ -11,9 +11,10 @@ const FILE_PATH = path.join(DATA_DIR, "location.txt");
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public")));
 
+// Ensure the data directory exists
 if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR);
-  }
+  fs.mkdirSync(DATA_DIR);
+}
 
 app.post("/save-location", (req, res) => {
   const { latitude, longitude } = req.body;
@@ -44,4 +45,3 @@ app.get("/location-data", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-
