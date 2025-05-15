@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Location Logger</title>
+</head>
+<body onload="getLocation()">
+
+<h1>Location Logger</h1>
+<p>Your location data will be logged and saved to a file on the server.</p>
+
+<script>
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(sendLocation);
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  }
+
+  function sendLocation(position) {
+    const data = {
+      latitude: position.coords.latitude,
+      longitude: position.coords.longitude,
+    };
+
+    fetch("/save-location", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.text())
+      .then((message) => {
+        console.log(message);
+      })
+      .catch((err) => {
+        console.error("Error:", err);
+      });
+  }
+</script>
+
+</body>
+</html>

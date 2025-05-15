@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: location-logger
+    env: node
+    plan: free
+    buildCommand: "npm install"
+    startCommand: "node server.js"
+    envVars:
+      - key: DATA_DIR
+        value: "/data"
+    disk:
+      name: location-data
+      mountPath: /data
