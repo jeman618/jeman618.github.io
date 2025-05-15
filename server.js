@@ -12,9 +12,9 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 // Ensure the data directory exists
-if (!fs.existsSync(DATA_DIR)) {
-  fs.mkdirSync(DATA_DIR);
-}
+if (!fs.existsSync(FILE_PATH)) {
+    fs.writeFileSync(FILE_PATH, "", { flag: "w" }); // Create empty file
+  }
 
 app.post("/save-location", (req, res) => {
   const { latitude, longitude } = req.body;
