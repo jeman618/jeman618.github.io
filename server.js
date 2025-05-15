@@ -11,6 +11,10 @@ const FILE_PATH = path.join(DATA_DIR, "location.txt");
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public")));
 
+if (!fs.existsSync(DATA_DIR)) {
+    fs.mkdirSync(DATA_DIR);
+  }
+
 app.post("/save-location", (req, res) => {
   const { latitude, longitude } = req.body;
   const data = `Latitude: ${latitude}\nLongitude: ${longitude}\n`;
