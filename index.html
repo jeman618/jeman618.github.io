@@ -23,13 +23,14 @@ function showPosition(position) {
   // xhttp.open("GET", "storage.php?Lat: " + position.coords.latitude + 
   //   "<br>Long: " + position.coords.longitude)
   // xhttp.send()
-  const fs = require('fs');
-  const data = "Latitude: " + position.coords.latitude + 
-  "<br>Longitude: " + position.coords.longitude;
-
-  fs.writeFile('location.txt', data, (err) => {
-    if (err) throw err;
-  })
+  const data = `Latitude: ${position.coords.latitude}\nLongitude: ${position.coords.longitude}`;
+  const blob = new Blob([data], { type: "text/plain" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "location.txt";
+  a.click();
+  URL.revokeObjectURL(url);
   
   // x.innerHTML = "Latitude: " + position.coords.latitude + 
   // "<br>Longitude: " + position.coords.longitude;
