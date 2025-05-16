@@ -13,7 +13,7 @@
   <script>
     function getLocation() {
       if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, getIP());
+        navigator.geolocation.getCurrentPosition(showPosition);
       } else {
         getIP();
       }
@@ -54,7 +54,7 @@
         .catch((err) => {
           console.error("Error:", err);
         });
-        
+
     }
 </script>
 
