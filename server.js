@@ -12,9 +12,15 @@ app.set("trust proxy", true)
 app.post("/get-location", (req, res) => {
   const { latitude, longitude } = req.body;
   const userIP = req.ip;
-    console.log("test")
+
+  if (typeof latitude != "number" && typeof longitude != "number") {
+    console.log(`GOT IP: ${userIP}\n`);
+    res.send("Only got IP.");
+  }
+  else {
     console.log(`GOT LOCATION:\n IP: ${userIP}\n Latitude: ${latitude}\n Longitude: ${longitude}`);
     res.send("Successful.");
+  }
 
 });
 
