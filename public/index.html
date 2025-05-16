@@ -13,10 +13,16 @@
   <script>
     function getLocation() {
       if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, getIP());
+        navigator.geolocation.getCurrentPosition(showPosition(), locationError());
       } else {
-        // getIP();
+        console.warn("Cannot get coordinates on browser");
+        getIP();
       }
+    }
+
+    function locationError(err) {
+      console.warn(`Location errer: ${err.message}`);
+      getIP();
     }
 
     function getIP() {
@@ -27,7 +33,7 @@
         body: JSON.stringify({})
       })
         .then(response => response.text())
-        .then(message => {console.log(message);})
+        .then(message => {console.log(message)})
         .catch(err => {
           console.error("Error: ", err);
         });
