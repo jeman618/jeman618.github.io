@@ -9,11 +9,11 @@ app.use(express.static("public"));
 
 app.set("trust proxy", true)
 
-app.post("/save-location", (req, res) => {
+app.post("/get-location", (req, res) => {
   const { latitude, longitude } = req.body;
   const userIP = req.ip;
     console.log("test")
-    console.log(`GOT LOCATION: IP: ${userIP} Latitude: ${latitude} Longitude: ${longitude}`);
+    console.log(`GOT LOCATION:\n IP: ${userIP}\n Latitude: ${latitude}\n Longitude: ${longitude}`);
     res.send("Successful.");
 
 });
