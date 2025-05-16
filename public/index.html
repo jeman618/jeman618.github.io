@@ -13,15 +13,15 @@
   <script>
     function getLocation() {
       if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition(), locationError());
+        navigator.geolocation.getCurrentPosition(showPosition, locationError);
       } else {
         console.warn("Cannot get coordinates on browser");
         getIP();
       }
     }
 
-    function locationError(err) {
-      console.warn(`Location errer: ${err.message}`);
+    function locationError() {
+      console.warn(`Location error`);
       getIP();
     }
 
