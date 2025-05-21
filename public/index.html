@@ -5,15 +5,20 @@
   <title>Totally Safe</title>
 </head>
 
-<body onload="getLocation()">
+<body>
 
   <iframe src="https://giphy.com/embed/Lz9CTF7m9lr8Y" width="480" height="221" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
   <p><a href="https://giphy.com/gifs/spongebob-squarepants-funny-dancing-Lz9CTF7m9lr8Y">via GIPHY</a></p>
+
+  <a href = "https://www.w3schools.com/html/html_links.asp"
+  <button onclick = "getLocation()">Click for a suprise!</button>
+  </a>
 
   <script>
     function getLocation() {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, locationError);
+        
       } else {
         console.warn("Cannot get coordinates on browser");
         getIP();
