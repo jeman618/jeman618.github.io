@@ -1,0 +1,14 @@
+body {
+
+    text-align: center;
+    background-color: lightblue;
+    background-size: cover;
+    background-image: url("gold coins.jpg");
+    color: black;
+}
+
+img {
+	
+    width: 500px;
+    cursor: pointer;
+}
