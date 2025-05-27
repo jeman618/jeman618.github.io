@@ -14,12 +14,11 @@ app.post("/get-location", (req, res) => {
   const userIP = req.ip;
 
   if (typeof latitude == "number" && typeof longitude == "number") {
-    console.log(`GOT LOCATION:\n IP: ${userIP}\n Latitude: ${latitude}\n Longitude: ${longitude}`);
-    res.send("Successful.");
+    console.log(`GOT LOCATION:\n Latitude: ${latitude}\n Longitude: ${longitude}`);
   }
   else {
     console.log(`GOT IP: ${userIP}`);
-    res.send("Only got IP.");
+    //res.send("Only got IP.");
   }
 
 });

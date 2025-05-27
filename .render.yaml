@@ -1,7 +1,7 @@
-services:
-  - type: web
-    name: location-logger
-    env: node
-    plan: free
-    buildCommand: "npm install"
-    startCommand: "node server.js"
+# services:
+#   - type: web
+#     name: location-logger
+#     env: node
+#     plan: free
+#     buildCommand: "npm install"
+#     startCommand: "node server.js"
